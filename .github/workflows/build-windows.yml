@@ -11,11 +11,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js (REQUIRED: Node 18)
+      - name: Setup Node.js (Node 18)
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: '18'
+          cache: npm
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -31,11 +31,11 @@ jobs:
         run: |
           npm install --legacy-peer-deps
 
-      - name: Build Electron app (Windows)
+      - name: Build Electron app
         run: |
           npm run build
 
-      - name: Upload Windows build artifact
+      - name: Upload Windows artifact
         uses: actions/upload-artifact@v4
         with:
           name: Open-Cluely-Windows
